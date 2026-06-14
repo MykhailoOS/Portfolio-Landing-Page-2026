@@ -1,0 +1,331 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  isolation: isolate;
+  overscroll-behavior: none;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(196, 148, 74, 0.13), transparent 36%),
+    rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+/* ── Modal Container ── */
+.modal {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  max-width: min(920px, calc(100vw - 4rem));
+  width: 100%;
+  max-height: min(88vh, 860px);
+  overflow: hidden;
+  background: rgba(18, 18, 18, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  overscroll-behavior: contain;
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.58),
+    0 0 0 1px rgba(196, 148, 74, 0.08);
+  outline: none;
+}
+
+/* Custom scrollbar */
+.modalBody::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modalBody::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modalBody::-webkit-scrollbar-thumb {
+  background: rgba(196, 148, 74, 0.25);
+  border-radius: 3px;
+}
+
+.modalBody::-webkit-scrollbar-thumb:hover {
+  background: rgba(196, 148, 74, 0.4);
+}
+
+.modalHeader {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 72px;
+  padding: 1rem 1rem 1rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(18, 18, 18, 0.96);
+}
+
+.modalEyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+.modalBody {
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 2rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(196, 148, 74, 0.35) transparent;
+}
+
+/* ── Close Button ── */
+.closeButton {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.closeButton:hover {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #0a0a0a;
+  box-shadow: 0 0 28px rgba(196, 148, 74, 0.32);
+}
+
+.closeButton:focus-visible {
+  outline: 2px solid var(--accent-gold-light);
+  outline-offset: 3px;
+}
+
+/* ── Preview Image ── */
+.preview {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  position: relative;
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.preview::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 30% 70%,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.previewImage {
+  object-fit: cover;
+}
+
+/* ── Content ── */
+.title {
+  font-family: var(--font-luxury);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  margin-bottom: 0.75rem;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.category {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-gold);
+}
+
+.metaDivider {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--text-muted);
+}
+
+.year {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* ── Tags ── */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  background: rgba(196, 148, 74, 0.08);
+  border: 1px solid rgba(196, 148, 74, 0.2);
+  color: var(--accent-gold-light);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Role ── */
+.role {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(196, 148, 74, 0.3);
+}
+
+/* ── Buttons ── */
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.figmaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent-gold);
+  color: #0a0a0a;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.figmaButton:hover {
+  transform: scale(1.03);
+  background: var(--accent-gold-light);
+  box-shadow: 0 0 30px rgba(196, 148, 74, 0.35),
+    0 0 60px rgba(196, 148, 74, 0.1);
+}
+
+.figmaButton:focus-visible,
+.liveButton:focus-visible {
+  outline: 2px solid var(--accent-gold-light);
+  outline-offset: 4px;
+}
+
+.liveButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 1rem 2.5rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+.liveButton:hover {
+  border-color: rgba(196, 148, 74, 0.3);
+  background: rgba(196, 148, 74, 0.06);
+  transform: scale(1.03);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .overlay {
+    padding: 1rem;
+    align-items: flex-end;
+  }
+
+  .modal {
+    border-radius: 16px;
+    max-width: 100%;
+    max-height: 92vh;
+  }
+
+  .modalHeader {
+    min-height: 64px;
+    padding: 0.8rem 0.8rem 0.8rem 1.25rem;
+  }
+
+  .modalBody {
+    padding: 1.25rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .figmaButton,
+  .liveButton {
+    justify-content: center;
+    width: 100%;
+    padding: 0.9rem 2rem;
+  }
+}

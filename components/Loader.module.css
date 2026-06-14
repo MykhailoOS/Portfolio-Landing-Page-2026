@@ -1,0 +1,67 @@
+.loaderOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.loaderContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.counter {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  color: var(--accent-gold);
+  font-family: var(--font-main);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.nameWrapper {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-weight: 300;
+  opacity: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.line {
+  width: 60px;
+  height: 1px;
+  background: var(--accent-gold);
+  margin-top: 1.5rem;
+  transform: scaleX(0);
+  transform-origin: center;
+}
