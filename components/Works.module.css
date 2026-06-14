@@ -278,8 +278,8 @@
   }
 
   .card {
-    aspect-ratio: auto;
-    min-height: 420px;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
   }
 
   .cardDescription,
@@ -301,7 +301,7 @@
 
 @media (max-width: 420px) {
   .card {
-    min-height: 390px;
+    min-height: 0;
   }
 
   .cardDescription {

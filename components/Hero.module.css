@@ -154,11 +154,20 @@
   }
 
   .scrollHint {
-    right: 1rem;
+    position: relative;
+    right: auto;
+    top: auto;
+    justify-content: center;
+    gap: 0.7rem;
+    margin-top: 1.25rem;
+    transform: none;
   }
 
   .scrollText {
-    display: none;
+    display: block;
+    writing-mode: horizontal-tb;
+    font-size: 0.64rem;
+    letter-spacing: 0.16em;
   }
 
   .scrollArrow {
