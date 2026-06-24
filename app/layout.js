@@ -66,8 +66,8 @@ export const metadata = {
     images: [
       {
         url: "/images/me.png",
-        width: 1086,
-        height: 1448,
+        width: 1154,
+        height: 1280,
         alt: "Michael Pashchenko",
       },
     ],
